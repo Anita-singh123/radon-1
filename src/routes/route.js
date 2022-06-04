@@ -7,6 +7,12 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
+router.post("/created", async function (req,res){
+    let data = req.body
+    let saveData = await UserModel.create(data)
+    res.send({Anita:saveData})
+})
+
 router.post("/createUser", UserController.createUser  )
 
 router.get("/getUsersData", UserController.getUsersData)
